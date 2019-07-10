@@ -8,3 +8,4 @@ import tk.mybatis.mapper.common.Mapper;
  */
 public interface CategoryMapper extends Mapper<Category> {
 }
+    git remote add origin https://github.com/tangwx96/leyou.git
