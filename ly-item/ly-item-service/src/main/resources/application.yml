@@ -6,7 +6,7 @@ spring:
   datasource:
     url: jdbc:mysql://106.12.122.248:3306/heima
     username: root
-    password: Qazwsx111123!
+    password: Qazwsx123!
 eureka:
   client:
     service-url:

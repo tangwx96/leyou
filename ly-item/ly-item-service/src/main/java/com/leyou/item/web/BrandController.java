@@ -4,9 +4,13 @@ import com.leyou.common.vo.PageResult;
 import com.leyou.item.pojo.Brand;
 import com.leyou.item.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 public class BrandController {
 
@@ -23,5 +27,18 @@ public class BrandController {
                                                               @RequestParam(value = "key",required = false)String key){
         return ResponseEntity.ok( brandService.queryBrandByPage(page,rows,sortBy,desc,key));
 
+    }
+
+
+    /**
+     * 新增品牌
+     * @param brand
+     * @param cids
+     * @return
+     */
+    @PostMapping
+    public ResponseEntity<Void> saveBrand(Brand brand,@RequestParam("cids")List<Long> cids){
+        brandService.saveBrand(brand,cids);
+        return  ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }
